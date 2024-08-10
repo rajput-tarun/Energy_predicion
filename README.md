@@ -82,5 +82,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Thanks to DAEWOO Steel Co. Ltd for providing the dataset and to all contributors and resources that helped in the completion of this project.
 
 ---
-
-Feel free to adjust or expand upon any section as needed!
