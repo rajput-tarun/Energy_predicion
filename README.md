@@ -68,10 +68,47 @@ To set up the project, follow these steps:
 
 ## Usage
 
-Run the main script to execute the analysis and model predictions:
+You now have two ways to run the project:
+
+1) OOP Pipeline (recommended)
+
+The refactored, object-oriented pipeline provides a clean, modular architecture.
+
+```bash
+# install deps
+pip install -r requirements.txt
+
+# run OOP pipeline (pass path to your CSV)
+python app.py --data-path <path_to_csv> --models rf knn svm logreg nb dt --save-plots
+```
+
+- `--data-path` is required and should point to the dataset CSV.
+- `--models` lets you choose which algorithms to run (defaults to all shown).
+- `--save-plots` saves confusion matrices and ROC curves to the `plots/` directory.
+
+2) Legacy Script/Notebook (for reference)
+
+The exploratory notebook and its mirrored `main.py` are kept for reference:
+
 ```bash
 python main.py
 ```
+
+Note: `main.py` is deprecated and mirrors the notebook-style workflow.
+
+### Project Structure (OOP)
+
+- `energy_prediction/`
+  - `__init__.py` – package init
+  - `config.py` – dataclasses for pipeline/model/data configs
+  - `data_loader.py` – `DataLoader` to read CSV and derive time features
+  - `preprocessing.py` – `Preprocessor` for encoding/scaling and feature assembly
+  - `models.py` – `ModelBuilder` to instantiate ML models
+  - `training.py` – `Trainer` to split, fit, and basic evaluation
+  - `evaluation.py` – `Evaluator` for confusion matrix and ROC/AUC
+  - `pipeline.py` – `Pipeline` orchestrating the full run
+- `app.py` – CLI entry point to run the OOP pipeline
+- `main.py` – legacy, notebook-style script (deprecated)
 
 ## License
 
